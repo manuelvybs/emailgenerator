@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<!--
+  VYBS Template: tmpl-feature-drop.html
+  Type: Promotional / Feature Announcement
+  Braze name: Email | All Players | Feature Drop | YYYY-MM-DD
+  Subject line: Something new just dropped on VYBS
+  Preview text: New features. More ways to earn. Available now.
+  Content Blocks: {{content_blocks.${vybs_header}}} | {{content_blocks.${vybs_footer}}} | {{content_blocks.${vybs_app_download}}}
+  Liquid: ${first_name}, custom_attribute.${vip_status}
+  → Add/remove feature rows as needed. Each feature needs: icon img, label color, title, 1-line description.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{campaign.${name}}}</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #EAECFF; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+
+  {% if ${email_unsubscribed} == true %}
+    {% abort_message('User is unsubscribed') %}
+  {% endif %}
+
+  {% assign display_name = ${first_name} | default: 'Player' %}
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #EAECFF;">
+    <tr>
+      <td align="center" style="padding: 32px 16px;">
+
+        <table width="500" cellpadding="0" cellspacing="0" border="0" style="max-width: 500px; width: 100%; background-color: #FFFFFF; border-radius: 12px; overflow: hidden;">
+
+          <!-- ═══════════════════════════════════════
+               HEADER
+          ════════════════════════════════════════ -->
+          {{content_blocks.${vybs_header}}}
+
+          <!-- ═══════════════════════════════════════
+               HERO
+          ════════════════════════════════════════ -->
+          <tr>
+            <td style="background-color: #6F7EFF; padding: 40px 32px; text-align: center;">
+              <p style="margin: 0 0 8px; color: #EAECFF; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                Just Dropped
+              </p>
+              <h1 style="margin: 0 0 14px; color: #FFFFFF; font-size: 30px; font-weight: 700; line-height: 1.2; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                VYBS just got a lot more rewarding.
+              </h1>
+              <p style="margin: 0; color: #EAECFF; font-size: 15px; line-height: 1.6; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                Hey {{display_name}} — three new features shipped this week. Here's what changed and what it means for your points.
+              </p>
+            </td>
+          </tr>
+
+          <!-- ═══════════════════════════════════════
+               FEATURE ROWS
+               → Replace icon src, label color, title, description for each feature
+               → Add or remove <tr> blocks as needed
+          ════════════════════════════════════════ -->
+
+          <!-- Feature 1 -->
+          <tr>
+            <td style="background-color: #FFFFFF; padding: 28px 32px 0;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="background-color: #EAECFF; border-radius: 10px; padding: 22px;">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td width="52" valign="top" style="padding-right: 16px;">
+                          <table cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                              <td style="background-color: #6F7EFF; border-radius: 10px; width: 40px; height: 40px; text-align: center; vertical-align: middle;">
+                                <img src="https://cdn.vybs.co/email/icons/icon-feature-01.png" alt="" width="22" height="22" style="display: block; margin: 9px auto; border: 0;">
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td valign="top">
+                          <p style="margin: 0 0 3px; color: #6F7EFF; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">New</p>
+                          <p style="margin: 0 0 6px; color: #000000; font-size: 16px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">[Feature Name]</p>
+                          <p style="margin: 0; color: #5C5C5C; font-size: 13px; line-height: 1.5; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                            [One clear sentence on what this feature does and how it benefits the player.]
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Feature 2 -->
+          <tr>
+            <td style="background-color: #FFFFFF; padding: 12px 32px 0;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="background-color: #EAECFF; border-radius: 10px; padding: 22px;">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td width="52" valign="top" style="padding-right: 16px;">
+                          <table cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                              <td style="background-color: #FFCA00; border-radius: 10px; width: 40px; height: 40px; text-align: center; vertical-align: middle;">
+                                <img src="https://cdn.vybs.co/email/icons/icon-feature-02.png" alt="" width="22" height="22" style="display: block; margin: 9px auto; border: 0;">
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td valign="top">
+                          <p style="margin: 0 0 3px; color: #000000; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">New</p>
+                          <p style="margin: 0 0 6px; color: #000000; font-size: 16px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">[Feature Name]</p>
+                          <p style="margin: 0; color: #5C5C5C; font-size: 13px; line-height: 1.5; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                            [One clear sentence on what this feature does and how it benefits the player.]
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Feature 3 -->
+          <tr>
+            <td style="background-color: #FFFFFF; padding: 12px 32px 0;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="background-color: #EAECFF; border-radius: 10px; padding: 22px;">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td width="52" valign="top" style="padding-right: 16px;">
+                          <table cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                              <td style="background-color: #3CD98A; border-radius: 10px; width: 40px; height: 40px; text-align: center; vertical-align: middle;">
+                                <img src="https://cdn.vybs.co/email/icons/icon-feature-03.png" alt="" width="22" height="22" style="display: block; margin: 9px auto; border: 0;">
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td valign="top">
+                          <p style="margin: 0 0 3px; color: #3CD98A; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">New</p>
+                          <p style="margin: 0 0 6px; color: #000000; font-size: 16px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">[Feature Name]</p>
+                          <p style="margin: 0; color: #5C5C5C; font-size: 13px; line-height: 1.5; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                            [One clear sentence on what this feature does and how it benefits the player.]
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ═══════════════════════════════════════
+               CTA
+          ════════════════════════════════════════ -->
+          <tr>
+            <td style="background-color: #FFFFFF; padding: 32px 32px 40px; text-align: center;">
+              <table cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto;">
+                <tr>
+                  <td style="background-color: #FFCA00; border-radius: 8px;">
+                    <a href="https://vybs.co/whats-new" style="display: inline-block; padding: 16px 44px; color: #000000; font-weight: 700; font-size: 16px; text-decoration: none; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                      Explore What's New
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ═══════════════════════════════════════
+               APP DOWNLOAD + SOCIALS + FOOTER
+          ════════════════════════════════════════ -->
+          {{content_blocks.${vybs_app_download}}}
+          {{content_blocks.${vybs_socials}}}
+          {{content_blocks.${vybs_footer}}}
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

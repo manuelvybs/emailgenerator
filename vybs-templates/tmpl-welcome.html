@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!--
+  VYBS Template: tmpl-welcome.html
+  Type: Onboarding / Welcome
+  Braze name: Email | New Registrations | Welcome & First Earn | YYYY-MM-DD
+  Subject line: Hey {{${first_name} | default: 'Player'}}, welcome to VYBS. Here's how to earn.
+  Preview text: You signed up. Now let's get you your first reward.
+  Content Blocks: {{content_blocks.${vybs_header}}} | {{content_blocks.${vybs_footer}}} | {{content_blocks.${vybs_app_download}}}
+  Liquid: ${first_name}, custom_attribute.${reward_points}
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{campaign.${name}}}</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #EAECFF; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+
+  {% if ${email_unsubscribed} == true %}
+    {% abort_message('User is unsubscribed') %}
+  {% endif %}
+
+  {% assign display_name = ${first_name} | default: 'Player' %}
+
+  <!-- Outer wrapper -->
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #EAECFF;">
+    <tr>
+      <td align="center" style="padding: 32px 16px;">
+
+        <!-- Email container -->
+        <table width="500" cellpadding="0" cellspacing="0" border="0" style="max-width: 500px; width: 100%; background-color: #FFFFFF; border-radius: 12px; overflow: hidden;">
+
+          <!-- ═══════════════════════════════════════
+               HEADER — Blue bar + logo
+          ════════════════════════════════════════ -->
+          {{content_blocks.${vybs_header}}}
+
+          <!-- ═══════════════════════════════════════
+               HERO — Welcome message
+          ════════════════════════════════════════ -->
+          <tr>
+            <td style="background-color: #6F7EFF; padding: 48px 32px 40px; text-align: center;">
+              <p style="margin: 0 0 6px; color: #EAECFF; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                You're in.
+              </p>
+              <h1 style="margin: 0 0 16px; color: #FFFFFF; font-size: 34px; font-weight: 700; line-height: 1.15; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                Welcome to VYBS,<br>{{display_name}}.
+              </h1>
+              <p style="margin: 0; color: #EAECFF; font-size: 16px; line-height: 1.6; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                Play games. Earn real gift cards.<br>That's it.
+              </p>
+            </td>
+          </tr>
+
+          <!-- ═══════════════════════════════════════
+               BONUS BANNER
+          ════════════════════════════════════════ -->
+          <tr>
+            <td style="background-color: #FFCA00; padding: 16px 32px; text-align: center;">
+              <p style="margin: 0; color: #000000; font-size: 14px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                500 bonus points credited to your account. Play your first game to unlock them.
+              </p>
+            </td>
+          </tr>
+
+          <!-- ═══════════════════════════════════════
+               BODY — How it works (3 steps)
+          ════════════════════════════════════════ -->
+          <tr>
+            <td style="background-color: #FFFFFF; padding: 40px 32px 16px;">
+              <p style="margin: 0 0 28px; color: #000000; font-size: 18px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                How it works
+              </p>
+
+              <!-- Step 1 -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 24px;">
+                <tr>
+                  <td width="44" valign="top" style="padding-right: 16px;">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="background-color: #6F7EFF; border-radius: 50%; width: 36px; height: 36px; text-align: center; vertical-align: middle; font-size: 15px; font-weight: 700; color: #FFFFFF; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; line-height: 36px;">
+                          1
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td valign="top">
+                    <p style="margin: 0 0 4px; color: #000000; font-size: 15px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                      Pick a game
+                    </p>
+                    <p style="margin: 0; color: #5C5C5C; font-size: 14px; line-height: 1.5; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                      Browse hundreds of titles — mobile, strategy, casual. All free to play.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Step 2 -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 24px;">
+                <tr>
+                  <td width="44" valign="top" style="padding-right: 16px;">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="background-color: #FFCA00; border-radius: 50%; width: 36px; height: 36px; text-align: center; vertical-align: middle; font-size: 15px; font-weight: 700; color: #000000; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; line-height: 36px;">
+                          2
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td valign="top">
+                    <p style="margin: 0 0 4px; color: #000000; font-size: 15px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                      Play and earn points
+                    </p>
+                    <p style="margin: 0; color: #5C5C5C; font-size: 14px; line-height: 1.5; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                      Every session, milestone, and challenge earns you VYBS points.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Step 3 -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td width="44" valign="top" style="padding-right: 16px;">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="background-color: #3CD98A; border-radius: 50%; width: 36px; height: 36px; text-align: center; vertical-align: middle; font-size: 15px; font-weight: 700; color: #000000; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; line-height: 36px;">
+                          3
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td valign="top">
+                    <p style="margin: 0 0 4px; color: #000000; font-size: 15px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                      Redeem for real rewards
+                    </p>
+                    <p style="margin: 0; color: #5C5C5C; font-size: 14px; line-height: 1.5; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                      Amazon, PayPal, PlayStation, Xbox. Real gift cards, real value.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ═══════════════════════════════════════
+               CTA
+          ════════════════════════════════════════ -->
+          <tr>
+            <td style="background-color: #FFFFFF; padding: 32px 32px 40px; text-align: center;">
+              <table cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto;">
+                <tr>
+                  <td style="background-color: #6F7EFF; border-radius: 8px;">
+                    <a href="https://vybs.co/games" style="display: inline-block; padding: 16px 44px; color: #FFFFFF; font-weight: 700; font-size: 16px; text-decoration: none; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; letter-spacing: 0.01em;">
+                      Browse Games &amp; Start Earning
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ═══════════════════════════════════════
+               APP DOWNLOAD
+          ════════════════════════════════════════ -->
+          {{content_blocks.${vybs_app_download}}}
+
+          <!-- ═══════════════════════════════════════
+               SOCIALS
+          ════════════════════════════════════════ -->
+          {{content_blocks.${vybs_socials}}}
+
+          <!-- ═══════════════════════════════════════
+               FOOTER
+          ════════════════════════════════════════ -->
+          {{content_blocks.${vybs_footer}}}
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

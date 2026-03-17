@@ -1,0 +1,65 @@
+<!-- ============================================================
+   VYBS Content Block: vybs_footer
+   Usage: {{content_blocks.${vybs_footer}}}
+   Description: Standard footer — tagline, legal, unsubscribe links
+   ============================================================ -->
+
+<tr>
+  <td style="background-color: #F5F5F5; padding: 28px 32px; text-align: center; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+
+    <!-- Divider -->
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td style="padding-bottom: 20px;">
+          <table width="48" cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto;">
+            <tr>
+              <td style="background-color: #6F7EFF; height: 2px; font-size: 0; line-height: 0;">&nbsp;</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+
+    <!-- Tagline -->
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td style="text-align: center; padding-bottom: 14px;">
+          <p style="margin: 0; color: #5C5C5C; font-size: 11px; letter-spacing: 0.1em; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+            PLAY MORE. EARN REAL.
+          </p>
+        </td>
+      </tr>
+    </table>
+
+    <!-- Links -->
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td style="text-align: center; padding-bottom: 14px;">
+          <a href="https://vybs.co" style="color: #5C5C5C; text-decoration: none; font-size: 12px; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">vybs.co</a>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="https://vybs.co/privacy" style="color: #5C5C5C; text-decoration: none; font-size: 12px; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">Privacy</a>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="https://vybs.co/terms" style="color: #5C5C5C; text-decoration: none; font-size: 12px; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">Terms</a>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="{{${set_user_to_unsubscribed_url}}}" style="color: #5C5C5C; text-decoration: underline; font-size: 12px; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">Unsubscribe</a>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="{{${email_settings_url}}}" style="color: #5C5C5C; text-decoration: underline; font-size: 12px; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">Email Preferences</a>
+        </td>
+      </tr>
+    </table>
+
+    <!-- Legal -->
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td style="text-align: center;">
+          <p style="margin: 0; color: #AAAAAA; font-size: 11px; line-height: 1.6; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+            &copy; {{'now' | date: '%Y'}} VYBS Inc. All rights reserved.<br>
+            You're receiving this because you signed up at vybs.co.<br>
+            VYBS Inc., 123 Gaming Ave, San Francisco, CA 94105
+          </p>
+        </td>
+      </tr>
+    </table>
+
+  </td>
+</tr>

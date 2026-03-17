@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!--
+  VYBS Template: tmpl-game-spotlight.html
+  Type: Promotional / Game Spotlight
+  Braze name: Email | All Players | Game Spotlight | YYYY-MM-DD
+  Subject line: New games on VYBS — start earning today
+  Preview text: {{${first_name} | default: 'Player'}}, these dropped this week. All paying out.
+  Content Blocks: {{content_blocks.${vybs_header}}} | {{content_blocks.${vybs_footer}}}
+  Liquid: ${first_name}, custom_attribute.${last_game_played}, custom_attribute.${reward_points}
+  → Swap game titles, images, pts values before sending. Image dims: featured 500×260px, cards 230×150px.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{campaign.${name}}}</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #EAECFF; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+
+  {% if ${email_unsubscribed} == true %}
+    {% abort_message('User is unsubscribed') %}
+  {% endif %}
+
+  {% assign display_name = ${first_name} | default: 'Player' %}
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #EAECFF;">
+    <tr>
+      <td align="center" style="padding: 32px 16px;">
+
+        <table width="500" cellpadding="0" cellspacing="0" border="0" style="max-width: 500px; width: 100%; background-color: #FFFFFF; border-radius: 12px; overflow: hidden;">
+
+          <!-- ═══════════════════════════════════════
+               HEADER
+          ════════════════════════════════════════ -->
+          {{content_blocks.${vybs_header}}}
+
+          <!-- ═══════════════════════════════════════
+               SECTION LABEL + INTRO
+          ════════════════════════════════════════ -->
+          <tr>
+            <td style="background-color: #FFFFFF; padding: 36px 32px 24px;">
+              <p style="margin: 0 0 6px; color: #6F7EFF; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                This Week's Spotlight
+              </p>
+              <h1 style="margin: 0 0 10px; color: #000000; font-size: 26px; font-weight: 700; line-height: 1.25; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                New games. New ways to earn.
+              </h1>
+              <p style="margin: 0; color: #5C5C5C; font-size: 14px; line-height: 1.6; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                Hey {{display_name}} — here's what just landed on VYBS this week. All of these pay real points.
+              </p>
+            </td>
+          </tr>
+
+          <!-- ═══════════════════════════════════════
+               FEATURED GAME CARD — Full width
+               → Replace: game image, title, genre, pts, link
+          ════════════════════════════════════════ -->
+          <tr>
+            <td style="background-color: #FFFFFF; padding: 0 32px 20px;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-radius: 10px; overflow: hidden; border: 1px solid #E8E8E8;">
+                <tr>
+                  <td style="padding: 0; line-height: 0; background-color: #EAECFF;">
+                    <img
+                      src="https://cdn.vybs.co/email/games/game-featured-01.jpg"
+                      alt="[GAME NAME]"
+                      width="436"
+                      style="display: block; width: 100%; max-width: 436px; border: 0; outline: none; text-decoration: none;"
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td style="background-color: #FFFFFF; padding: 20px;">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td valign="top">
+                          <p style="margin: 0 0 2px; color: #6F7EFF; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">Featured</p>
+                          <p style="margin: 0 0 6px; color: #000000; font-size: 18px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">[Game Name]</p>
+                          <p style="margin: 0 0 16px; color: #5C5C5C; font-size: 13px; line-height: 1.5; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">[Genre]. [One line on what makes this worth playing.] Earn up to [X] pts per week.</p>
+                        </td>
+                        <td width="80" valign="top" style="text-align: right;">
+                          <p style="margin: 0 0 2px; color: #000000; font-size: 18px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">[X]k pts</p>
+                          <p style="margin: 0; color: #5C5C5C; font-size: 11px; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">/week max</p>
+                        </td>
+                      </tr>
+                    </table>
+                    <table cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="background-color: #6F7EFF; border-radius: 6px;">
+                          <a href="https://vybs.co/games/[game-slug]" style="display: inline-block; padding: 11px 24px; color: #FFFFFF; font-weight: 700; font-size: 13px; text-decoration: none; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                            Play &amp; Earn
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ═══════════════════════════════════════
+               GAME CARDS — 2-column grid
+               → Duplicate / remove rows as needed
+          ════════════════════════════════════════ -->
+          <tr>
+            <td style="background-color: #FFFFFF; padding: 0 32px 28px;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+
+                  <!-- Card A -->
+                  <td width="50%" style="padding-right: 8px; vertical-align: top;">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-radius: 10px; overflow: hidden; border: 1px solid #E8E8E8;">
+                      <tr>
+                        <td style="padding: 0; line-height: 0; background-color: #EAECFF;">
+                          <img
+                            src="https://cdn.vybs.co/email/games/game-card-02.jpg"
+                            alt="[Game Name]"
+                            width="214"
+                            style="display: block; width: 100%; border: 0;"
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="background-color: #FFFFFF; padding: 14px;">
+                          <p style="margin: 0 0 3px; color: #000000; font-size: 13px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">[Game Name]</p>
+                          <p style="margin: 0 0 8px; color: #5C5C5C; font-size: 12px; line-height: 1.4; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">[Genre]. Up to [X] pts/week.</p>
+                          <p style="margin: 0 0 10px; color: #6F7EFF; font-size: 13px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">[X] pts</p>
+                          <table cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                              <td style="background-color: #EAECFF; border-radius: 5px;">
+                                <a href="https://vybs.co/games/[slug]" style="display: inline-block; padding: 8px 16px; color: #6F7EFF; font-size: 12px; font-weight: 700; text-decoration: none; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                                  Play Now
+                                </a>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+
+                  <!-- Card B -->
+                  <td width="50%" style="padding-left: 8px; vertical-align: top;">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-radius: 10px; overflow: hidden; border: 1px solid #E8E8E8;">
+                      <tr>
+                        <td style="padding: 0; line-height: 0; background-color: #EAECFF;">
+                          <img
+                            src="https://cdn.vybs.co/email/games/game-card-03.jpg"
+                            alt="[Game Name]"
+                            width="214"
+                            style="display: block; width: 100%; border: 0;"
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="background-color: #FFFFFF; padding: 14px;">
+                          <p style="margin: 0 0 3px; color: #000000; font-size: 13px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">[Game Name]</p>
+                          <p style="margin: 0 0 8px; color: #5C5C5C; font-size: 12px; line-height: 1.4; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">[Genre]. Up to [X] pts/week.</p>
+                          <p style="margin: 0 0 10px; color: #6F7EFF; font-size: 13px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">[X] pts</p>
+                          <table cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                              <td style="background-color: #EAECFF; border-radius: 5px;">
+                                <a href="https://vybs.co/games/[slug]" style="display: inline-block; padding: 8px 16px; color: #6F7EFF; font-size: 12px; font-weight: 700; text-decoration: none; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                                  Play Now
+                                </a>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ═══════════════════════════════════════
+               VIEW ALL CTA
+          ════════════════════════════════════════ -->
+          <tr>
+            <td style="background-color: #FFFFFF; padding: 0 32px 40px; text-align: center;">
+              <table cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto;">
+                <tr>
+                  <td style="background-color: #FFCA00; border-radius: 8px;">
+                    <a href="https://vybs.co/games" style="display: inline-block; padding: 16px 44px; color: #000000; font-weight: 700; font-size: 16px; text-decoration: none; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                      See All Games
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ═══════════════════════════════════════
+               FOOTER
+          ════════════════════════════════════════ -->
+          {{content_blocks.${vybs_footer}}}
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

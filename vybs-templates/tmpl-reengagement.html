@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<!--
+  VYBS Template: tmpl-reengagement.html
+  Type: Lifecycle / Re-engagement
+  Braze name: Canvas | Inactive 7d | Re-engagement | YYYY-MM-DD
+  Canvas trigger: User inactive for 7+ days
+  Subject line: {{${first_name} | default: 'Player'}}, your points are just sitting there
+  Preview text: You've been away. Your rewards haven't gone anywhere. Come get them.
+  Content Blocks: {{content_blocks.${vybs_header}}} | {{content_blocks.${vybs_footer}}} | {{content_blocks.${vybs_socials}}}
+  Liquid: ${first_name}, custom_attribute.${reward_points}, custom_attribute.${last_game_played}
+  → Aborts if user has 0 points. Adjust bonus offer and expiry before activating Canvas.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{campaign.${name}}}</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #EAECFF; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+
+  {% if ${email_unsubscribed} == true %}
+    {% abort_message('User is unsubscribed') %}
+  {% endif %}
+
+  {% assign display_name = ${first_name} | default: 'Player' %}
+  {% assign pts = custom_attribute.${reward_points} | default: 0 %}
+  {% assign last_game = custom_attribute.${last_game_played} | default: 'a game on VYBS' %}
+
+  {% if pts == 0 %}
+    {% abort_message('User has no reward points — skip re-engagement') %}
+  {% endif %}
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #EAECFF;">
+    <tr>
+      <td align="center" style="padding: 32px 16px;">
+
+        <table width="500" cellpadding="0" cellspacing="0" border="0" style="max-width: 500px; width: 100%; background-color: #FFFFFF; border-radius: 12px; overflow: hidden;">
+
+          <!-- ═══════════════════════════════════════
+               HEADER
+          ════════════════════════════════════════ -->
+          {{content_blocks.${vybs_header}}}
+
+          <!-- ═══════════════════════════════════════
+               HERO — Points waiting
+          ════════════════════════════════════════ -->
+          <tr>
+            <td style="background-color: #FFFFFF; padding: 48px 32px 32px; text-align: center;">
+
+              <!-- Points badge -->
+              <table cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto 24px;">
+                <tr>
+                  <td style="background-color: #EAECFF; border: 3px solid #6F7EFF; border-radius: 50%; width: 96px; height: 96px; text-align: center; vertical-align: middle;">
+                    <p style="margin: 0; color: #6F7EFF; font-size: 24px; font-weight: 700; line-height: 1; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">{{pts}}</p>
+                    <p style="margin: 3px 0 0; color: #5C5C5C; font-size: 9px; font-weight: 700; letter-spacing: 0.1em; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">POINTS</p>
+                  </td>
+                </tr>
+              </table>
+
+              <h1 style="margin: 0 0 12px; color: #000000; font-size: 26px; font-weight: 700; line-height: 1.25; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                {{display_name}}, your points are waiting.
+              </h1>
+              <p style="margin: 0; color: #5C5C5C; font-size: 15px; line-height: 1.6; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                You earned <strong style="color: #000000;">{{pts}} points</strong> playing {{last_game}}.<br>
+                You haven't been back in a while. Your rewards are still here.
+              </p>
+            </td>
+          </tr>
+
+          <!-- ═══════════════════════════════════════
+               COME-BACK OFFER
+               → Update bonus amount and expiry window before sending
+          ════════════════════════════════════════ -->
+          <tr>
+            <td style="background-color: #FFFFFF; padding: 0 32px 28px;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="background-color: #FFCA00; border-radius: 10px; padding: 22px 24px; text-align: center;">
+                    <p style="margin: 0 0 4px; color: #000000; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                      Come-back offer
+                    </p>
+                    <p style="margin: 0 0 8px; color: #000000; font-size: 22px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                      +[X] bonus points
+                    </p>
+                    <p style="margin: 0; color: #000000; font-size: 13px; line-height: 1.5; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                      Play any game today and we'll add them automatically. No code needed. Offer expires in [X] hours.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ═══════════════════════════════════════
+               REDEMPTION LADDER — What your pts can get
+               → Update point thresholds to match current reward catalog
+          ════════════════════════════════════════ -->
+          <tr>
+            <td style="background-color: #FFFFFF; padding: 0 32px 28px;">
+              <p style="margin: 0 0 14px; color: #000000; font-size: 14px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                What {{pts}} points can get you
+              </p>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="background-color: #EAECFF; border-radius: 8px 8px 0 0; padding: 11px 16px; border-bottom: 1px solid #FFFFFF;">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="color: #000000; font-size: 13px; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">Amazon Gift Card — $5</td>
+                        <td style="text-align: right; color: #6F7EFF; font-size: 13px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">500 pts</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="background-color: #EAECFF; padding: 11px 16px; border-bottom: 1px solid #FFFFFF;">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="color: #000000; font-size: 13px; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">PlayStation Store — $10</td>
+                        <td style="text-align: right; color: #6F7EFF; font-size: 13px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">1,000 pts</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="background-color: #EAECFF; border-radius: 0 0 8px 8px; padding: 11px 16px;">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="color: #000000; font-size: 13px; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">PayPal Cash — $25</td>
+                        <td style="text-align: right; color: #6F7EFF; font-size: 13px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">2,500 pts</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ═══════════════════════════════════════
+               CTA
+          ════════════════════════════════════════ -->
+          <tr>
+            <td style="background-color: #FFFFFF; padding: 0 32px 14px; text-align: center;">
+              <table cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto;">
+                <tr>
+                  <td style="background-color: #6F7EFF; border-radius: 8px;">
+                    <a href="https://vybs.co/games" style="display: inline-block; padding: 16px 44px; color: #FFFFFF; font-weight: 700; font-size: 16px; text-decoration: none; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                      Claim Your Bonus &amp; Play
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="background-color: #FFFFFF; padding: 0 32px 40px; text-align: center;">
+              <p style="margin: 0; color: #5C5C5C; font-size: 12px; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                Bonus applied automatically. No code needed.
+              </p>
+            </td>
+          </tr>
+
+          <!-- ═══════════════════════════════════════
+               SOCIALS + FOOTER
+          ════════════════════════════════════════ -->
+          {{content_blocks.${vybs_socials}}}
+          {{content_blocks.${vybs_footer}}}
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

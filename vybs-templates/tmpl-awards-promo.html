@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!--
+  VYBS Template: tmpl-awards-promo.html
+  Type: Promotional / Event
+  Braze name: Email | All Players | VYBS Awards Promo | YYYY-MM-DD
+  Subject line: {{${first_name} | default: 'Player'}}, the VYBS Game Awards are live
+  Preview text: Vote for your favorite games. Top voters earn bonus rewards.
+  Content Blocks: {{content_blocks.${vybs_header}}} | {{content_blocks.${vybs_footer}}}
+  Liquid: ${first_name}, custom_attribute.${reward_points}
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{campaign.${name}}}</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #EAECFF; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+
+  {% if ${email_unsubscribed} == true %}
+    {% abort_message('User is unsubscribed') %}
+  {% endif %}
+
+  {% assign display_name = ${first_name} | default: 'Player' %}
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #EAECFF;">
+    <tr>
+      <td align="center" style="padding: 32px 16px;">
+
+        <table width="500" cellpadding="0" cellspacing="0" border="0" style="max-width: 500px; width: 100%; background-color: #FFFFFF; border-radius: 12px; overflow: hidden;">
+
+          <!-- ═══════════════════════════════════════
+               HEADER
+          ════════════════════════════════════════ -->
+          {{content_blocks.${vybs_header}}}
+
+          <!-- ═══════════════════════════════════════
+               HERO IMAGE
+          ════════════════════════════════════════ -->
+          <tr>
+            <td style="padding: 0; line-height: 0; background-color: #6F7EFF; text-align: center;">
+              <img
+                src="https://cdn.vybs.co/email/heroes/hero-awards.jpg"
+                alt="VYBS Game Awards"
+                width="500"
+                style="display: block; width: 100%; max-width: 500px; border: 0; outline: none; text-decoration: none;"
+              >
+            </td>
+          </tr>
+
+          <!-- ═══════════════════════════════════════
+               HEADLINE
+          ════════════════════════════════════════ -->
+          <tr>
+            <td style="background-color: #FFFFFF; padding: 40px 32px 12px; text-align: center;">
+              <p style="margin: 0 0 10px; color: #6F7EFF; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                VYBS Game Awards — {{'now' | date: '%Y'}}
+              </p>
+              <h1 style="margin: 0 0 16px; color: #000000; font-size: 30px; font-weight: 700; line-height: 1.2; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                The games that defined the year.<br>You pick the winners.
+              </h1>
+              <p style="margin: 0; color: #5C5C5C; font-size: 15px; line-height: 1.6; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                Hey {{display_name}} — voting is open across 8 categories. Every vote earns points. Top voters get exclusive bonus rewards.
+              </p>
+            </td>
+          </tr>
+
+          <!-- ═══════════════════════════════════════
+               POINTS INCENTIVE BANNER
+          ════════════════════════════════════════ -->
+          <tr>
+            <td style="background-color: #FFFFFF; padding: 24px 32px;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="background-color: #FFCA00; border-radius: 10px; padding: 20px 24px; text-align: center;">
+                    <p style="margin: 0 0 4px; color: #000000; font-size: 22px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                      +100 pts per vote
+                    </p>
+                    <p style="margin: 0; color: #000000; font-size: 13px; line-height: 1.5; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                      Vote in all 8 categories for a <strong>+200 pt bonus.</strong> Top 10% of voters get an exclusive reward drop.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ═══════════════════════════════════════
+               CATEGORY GRID
+          ════════════════════════════════════════ -->
+          <tr>
+            <td style="background-color: #FFFFFF; padding: 0 32px 12px;">
+              <p style="margin: 0 0 16px; color: #000000; font-size: 15px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                Award categories
+              </p>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td width="50%" style="padding: 0 6px 10px 0; vertical-align: top;">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="background-color: #EAECFF; border-left: 3px solid #6F7EFF; border-radius: 0 6px 6px 0; padding: 12px 14px;">
+                          <p style="margin: 0 0 2px; color: #000000; font-size: 13px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">Game of the Year</p>
+                          <p style="margin: 0; color: #5C5C5C; font-size: 12px; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">Best overall experience</p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td width="50%" style="padding: 0 0 10px 6px; vertical-align: top;">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="background-color: #EAECFF; border-left: 3px solid #FFCA00; border-radius: 0 6px 6px 0; padding: 12px 14px;">
+                          <p style="margin: 0 0 2px; color: #000000; font-size: 13px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">Best Earner Game</p>
+                          <p style="margin: 0; color: #5C5C5C; font-size: 12px; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">Most rewards per hour</p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="50%" style="padding: 0 6px 0 0; vertical-align: top;">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="background-color: #EAECFF; border-left: 3px solid #3CD98A; border-radius: 0 6px 6px 0; padding: 12px 14px;">
+                          <p style="margin: 0 0 2px; color: #000000; font-size: 13px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">Best New Game</p>
+                          <p style="margin: 0; color: #5C5C5C; font-size: 12px; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">Released this year</p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td width="50%" style="padding: 0 0 0 6px; vertical-align: top;">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="background-color: #EAECFF; border-left: 3px solid #F173A6; border-radius: 0 6px 6px 0; padding: 12px 14px;">
+                          <p style="margin: 0 0 2px; color: #000000; font-size: 13px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">Most Addictive</p>
+                          <p style="margin: 0; color: #5C5C5C; font-size: 12px; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">Can't put it down</p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ═══════════════════════════════════════
+               CTA
+          ════════════════════════════════════════ -->
+          <tr>
+            <td style="background-color: #FFFFFF; padding: 28px 32px 12px; text-align: center;">
+              <table cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto;">
+                <tr>
+                  <td style="background-color: #6F7EFF; border-radius: 8px;">
+                    <a href="https://vybs.co/awards/vote" style="display: inline-block; padding: 16px 44px; color: #FFFFFF; font-weight: 700; font-size: 16px; text-decoration: none; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                      Vote Now &rarr;
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Deadline note -->
+          <tr>
+            <td style="background-color: #FFFFFF; padding: 10px 32px 40px; text-align: center;">
+              <p style="margin: 0; color: #5C5C5C; font-size: 12px; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                Voting closes [DEADLINE DATE]. Results announced [RESULTS DATE].
+              </p>
+            </td>
+          </tr>
+
+          <!-- ═══════════════════════════════════════
+               SOCIALS + FOOTER
+          ════════════════════════════════════════ -->
+          {{content_blocks.${vybs_socials}}}
+          {{content_blocks.${vybs_footer}}}
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
