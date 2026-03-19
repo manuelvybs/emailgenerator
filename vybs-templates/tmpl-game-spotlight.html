@@ -17,9 +17,6 @@
 </head>
 <body style="margin: 0; padding: 0; background-color: #EAECFF; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
 
-  {% if ${email_unsubscribed} == true %}
-    {% abort_message('User is unsubscribed') %}
-  {% endif %}
 
   {% assign display_name = ${first_name} | default: 'Player' %}
 
@@ -39,7 +36,7 @@
           ════════════════════════════════════════ -->
           <tr>
             <td style="background-color: #FFFFFF; padding: 36px 32px 24px;">
-              <p style="margin: 0 0 6px; color: #6F7EFF; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+              <p style="margin: 0 0 6px; color: #434EF0; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
                 This Week's Spotlight
               </p>
               <h1 style="margin: 0 0 10px; color: #000000; font-size: 26px; font-weight: 700; line-height: 1.25; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
@@ -73,7 +70,7 @@
                     <table width="100%" cellpadding="0" cellspacing="0" border="0">
                       <tr>
                         <td valign="top">
-                          <p style="margin: 0 0 2px; color: #6F7EFF; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">Featured</p>
+                          <p style="margin: 0 0 2px; color: #434EF0; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">Featured</p>
                           <p style="margin: 0 0 6px; color: #000000; font-size: 18px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">[Game Name]</p>
                           <p style="margin: 0 0 16px; color: #5C5C5C; font-size: 13px; line-height: 1.5; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">[Genre]. [One line on what makes this worth playing.] Earn up to [X] pts per week.</p>
                         </td>
@@ -85,7 +82,7 @@
                     </table>
                     <table cellpadding="0" cellspacing="0" border="0">
                       <tr>
-                        <td style="background-color: #6F7EFF; border-radius: 6px;">
+                        <td style="background-color: #434EF0; border-radius: 6px;">
                           <a href="https://vybs.co/games/[game-slug]" style="display: inline-block; padding: 11px 24px; color: #FFFFFF; font-weight: 700; font-size: 13px; text-decoration: none; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
                             Play &amp; Earn
                           </a>
@@ -124,11 +121,11 @@
                         <td style="background-color: #FFFFFF; padding: 14px;">
                           <p style="margin: 0 0 3px; color: #000000; font-size: 13px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">[Game Name]</p>
                           <p style="margin: 0 0 8px; color: #5C5C5C; font-size: 12px; line-height: 1.4; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">[Genre]. Up to [X] pts/week.</p>
-                          <p style="margin: 0 0 10px; color: #6F7EFF; font-size: 13px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">[X] pts</p>
+                          <p style="margin: 0 0 10px; color: #434EF0; font-size: 13px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">[X] pts</p>
                           <table cellpadding="0" cellspacing="0" border="0">
                             <tr>
                               <td style="background-color: #EAECFF; border-radius: 5px;">
-                                <a href="https://vybs.co/games/[slug]" style="display: inline-block; padding: 8px 16px; color: #6F7EFF; font-size: 12px; font-weight: 700; text-decoration: none; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                                <a href="https://vybs.co/games/[slug]" style="display: inline-block; padding: 8px 16px; color: #434EF0; font-size: 12px; font-weight: 700; text-decoration: none; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
                                   Play Now
                                 </a>
                               </td>
@@ -156,11 +153,11 @@
                         <td style="background-color: #FFFFFF; padding: 14px;">
                           <p style="margin: 0 0 3px; color: #000000; font-size: 13px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">[Game Name]</p>
                           <p style="margin: 0 0 8px; color: #5C5C5C; font-size: 12px; line-height: 1.4; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">[Genre]. Up to [X] pts/week.</p>
-                          <p style="margin: 0 0 10px; color: #6F7EFF; font-size: 13px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">[X] pts</p>
+                          <p style="margin: 0 0 10px; color: #434EF0; font-size: 13px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">[X] pts</p>
                           <table cellpadding="0" cellspacing="0" border="0">
                             <tr>
                               <td style="background-color: #EAECFF; border-radius: 5px;">
-                                <a href="https://vybs.co/games/[slug]" style="display: inline-block; padding: 8px 16px; color: #6F7EFF; font-size: 12px; font-weight: 700; text-decoration: none; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
+                                <a href="https://vybs.co/games/[slug]" style="display: inline-block; padding: 8px 16px; color: #434EF0; font-size: 12px; font-weight: 700; text-decoration: none; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
                                   Play Now
                                 </a>
                               </td>

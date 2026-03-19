@@ -17,9 +17,6 @@
 </head>
 <body style="margin: 0; padding: 0; background-color: #EAECFF; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
 
-  {% if ${email_unsubscribed} == true %}
-    {% abort_message('User is unsubscribed') %}
-  {% endif %}
 
   {% assign display_name = ${first_name} | default: 'Player' %}
 
@@ -38,7 +35,7 @@
                HERO
           ════════════════════════════════════════ -->
           <tr>
-            <td style="background-color: #6F7EFF; padding: 40px 32px; text-align: center;">
+            <td style="background-color: #434EF0; padding: 40px 32px; text-align: center;">
               <p style="margin: 0 0 8px; color: #EAECFF; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
                 Just Dropped
               </p>
@@ -68,14 +65,14 @@
                         <td width="52" valign="top" style="padding-right: 16px;">
                           <table cellpadding="0" cellspacing="0" border="0">
                             <tr>
-                              <td style="background-color: #6F7EFF; border-radius: 10px; width: 40px; height: 40px; text-align: center; vertical-align: middle;">
+                              <td style="background-color: #434EF0; border-radius: 10px; width: 40px; height: 40px; text-align: center; vertical-align: middle;">
                                 <img src="https://cdn.vybs.co/email/icons/icon-feature-01.png" alt="" width="22" height="22" style="display: block; margin: 9px auto; border: 0;">
                               </td>
                             </tr>
                           </table>
                         </td>
                         <td valign="top">
-                          <p style="margin: 0 0 3px; color: #6F7EFF; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">New</p>
+                          <p style="margin: 0 0 3px; color: #434EF0; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">New</p>
                           <p style="margin: 0 0 6px; color: #000000; font-size: 16px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">[Feature Name]</p>
                           <p style="margin: 0; color: #5C5C5C; font-size: 13px; line-height: 1.5; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
                             [One clear sentence on what this feature does and how it benefits the player.]
@@ -139,7 +136,7 @@
                           </table>
                         </td>
                         <td valign="top">
-                          <p style="margin: 0 0 3px; color: #3CD98A; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">New</p>
+                          <p style="margin: 0 0 3px; color: #000000; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">New</p>
                           <p style="margin: 0 0 6px; color: #000000; font-size: 16px; font-weight: 700; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">[Feature Name]</p>
                           <p style="margin: 0; color: #5C5C5C; font-size: 13px; line-height: 1.5; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;">
                             [One clear sentence on what this feature does and how it benefits the player.]
